@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "@tanstack/react-router";
 import { Fade } from "./Fade";
 
-import Img1 from "../assets/images/01.jpg";
+import Img1 from "../assets/images/01.jpeg";
 import Img2 from "../assets/images/02.jpg";
 import Img3 from "../assets/images/03.jpg";
 import Img4 from "../assets/images/04.jpg";
@@ -26,7 +27,7 @@ const landmarks: Landmark[] = [
     title: "Entoto Hill & Mountain View",
     tag: "Scenic Nature",
     description: "Rising 3,200m above sea level, Entoto offers sweeping panoramic skyline views of Addis Ababa, eucalyptus groves, and historic churches.",
-    image: "/home.jpg",
+    image: "/entoto.jpg",
   },
   {
     title: "Holy Trinity & St. George's",
@@ -38,19 +39,19 @@ const landmarks: Landmark[] = [
     title: "Ethiopian Coffee & Cuisine",
     tag: "Culinary & Coffee",
     description: "Experience the birthplace of coffee through an authentic roasting ceremony, fresh injera, rich stews, and aromatic local spices.",
-    image: Img2,
+    image: "/bunna.jpeg",
   },
   {
     title: "Unity Park & Grand Palace",
     tag: "Cultural Sanctuary",
     description: "The historical throne room of Ethiopian emperors transformed into a world-class park with palace museums and botanical gardens.",
-    image: Img3,
+    image: "/unity.jpg",
   },
   {
     title: "Vibrant Merkato & Local Life",
     tag: "Local Commerce",
     description: "Africa's largest bustling open-air market where spices, silver jewelry, leatherwork, and traditional woven fabrics come to life.",
-    image: Img4,
+    image: "/merkato.jpeg",
   },
 ];
 
@@ -101,14 +102,28 @@ export const Highlights: React.FC = () => {
                     </p>
                   </div>
 
-                  <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600">
-                    <span>Included in Tour Packages</span>
+                  <Link
+                    to="/destinations"
+                    className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-brand-600 hover:text-brand-700 transition"
+                  >
+                    <span>Read Full Destination Guide</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </Fade>
           ))}
+        </div>
+
+        {/* View All Destinations CTA */}
+        <div className="mt-12 text-center">
+          <Link
+            to="/destinations"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md transition"
+          >
+            <span>Explore All Historic Landmarks &amp; Sights</span>
+            <span>→</span>
+          </Link>
         </div>
       </div>
     </section>

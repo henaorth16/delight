@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { FaWhatsapp } from "./Icons";
 import { MOCK_CONTACT } from "../../utils/utils";
 
@@ -40,10 +41,32 @@ export const Hero: React.FC = () => {
             </h1>
 
             {/* Subtitle */}
-            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed mb-8 max-w-2xl font-normal">
+            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed mb-6 max-w-2xl font-normal">
               Private guided city tours, curated local stays, and seamless airport transport.
               Discover ancient history, coffee ceremonies, and breathtaking Entoto views with personal family care.
             </p>
+
+            {/* Quick Page Links */}
+            <div className="flex flex-wrap items-center gap-3 mb-8">
+              <Link
+                to="/tours"
+                className="px-5 py-2.5 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow-md transition"
+              >
+                Browse Tour Packages
+              </Link>
+              <Link
+                to="/destinations"
+                className="px-5 py-2.5 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs sm:text-sm border border-slate-200 shadow-sm transition"
+              >
+                Explore Destinations
+              </Link>
+              <Link
+                to="/contact"
+                className="px-5 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm transition"
+              >
+                Contact Concierge
+              </Link>
+            </div>
 
             {/* Quick Inquiry Bar */}
             <div className="w-full max-w-2xl bg-white p-3 sm:p-4 rounded-2xl shadow-xl shadow-slate-200/50 border border-slate-200/80 mb-8">
