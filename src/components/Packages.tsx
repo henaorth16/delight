@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { Fade } from "./Fade";
 import { FaWhatsapp } from "./Icons";
 import { MOCK_CONTACT } from "../../utils/utils";
@@ -237,10 +238,25 @@ export const Packages: React.FC = () => {
         </div>
 
         {/* Note / Flexibility Assurance */}
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-center flex flex-col items-center gap-4">
           <p className="text-xs sm:text-sm text-slate-500 max-w-2xl mx-auto">
-            💡 <strong>Need a custom itinerary?</strong> We gladly customize places, durations, and accommodation options according to your flight schedules and preferences.
+            💡 <strong>Need full day-by-day itineraries?</strong> Check our comprehensive schedules, meal plans, and guide inclusions.
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/tours"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow-md transition"
+            >
+              <span>View All Tour Details &amp; Schedules</span>
+              <span>→</span>
+            </Link>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs sm:text-sm border border-slate-200 transition"
+            >
+              Request Custom Itinerary
+            </Link>
+          </div>
         </div>
       </div>
     </section>

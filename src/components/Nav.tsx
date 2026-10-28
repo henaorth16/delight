@@ -16,17 +16,6 @@ export const Nav: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (id: string) => {
-    setIsMenuOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-  };
-
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-300">
       <div
@@ -56,7 +45,7 @@ export const Nav: React.FC = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+            <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
               <Link
                 to="/"
                 className="hover:text-brand-600 transition"
@@ -64,36 +53,27 @@ export const Nav: React.FC = () => {
               >
                 Home
               </Link>
-              <a
-                href="/#services"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("services");
-                }}
+              <Link
+                to="/services"
                 className="hover:text-brand-600 transition"
+                activeProps={{ className: "text-brand-600 font-semibold" }}
               >
-                What We Offer
-              </a>
-              <a
-                href="/#packages"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("packages");
-                }}
+                Services
+              </Link>
+              <Link
+                to="/tours"
                 className="hover:text-brand-600 transition"
+                activeProps={{ className: "text-brand-600 font-semibold" }}
               >
                 Tours &amp; Packages
-              </a>
-              <a
-                href="/#highlights"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("highlights");
-                }}
+              </Link>
+              <Link
+                to="/destinations"
                 className="hover:text-brand-600 transition"
+                activeProps={{ className: "text-brand-600 font-semibold" }}
               >
-                Addis Highlights
-              </a>
+                Destinations
+              </Link>
               <Link
                 to="/about"
                 className="hover:text-brand-600 transition"
@@ -101,13 +81,20 @@ export const Nav: React.FC = () => {
               >
                 About Us
               </Link>
+              <Link
+                to="/contact"
+                className="hover:text-brand-600 transition"
+                activeProps={{ className: "text-brand-600 font-semibold" }}
+              >
+                Contact
+              </Link>
             </nav>
 
             {/* Right Action Buttons */}
             <div className="hidden lg:flex items-center gap-4">
               <a
                 href={`${MOCK_CONTACT.whatsappUrl}?text=${encodeURIComponent(
-                  "Hello! I am inquiring about tour availability (Demo)."
+                  "Hello! I am inquiring about tour and accommodation availability (Prototype Demo)."
                 )}`}
                 target="_blank"
                 rel="noreferrer"
@@ -121,16 +108,12 @@ export const Nav: React.FC = () => {
                 <span>{MOCK_CONTACT.phoneFormatted}</span>
               </a>
 
-              <a
-                href="/#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("contact");
-                }}
+              <Link
+                to="/contact"
                 className="inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 shadow-sm hover:shadow transition"
               >
                 Book a Tour
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Hamburger Toggle */}
@@ -169,63 +152,64 @@ export const Nav: React.FC = () => {
 
         {/* Mobile Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden mt-3 px-4 pt-2 pb-6 bg-white border-t border-slate-100 shadow-lg flex flex-col gap-3">
+          <div className="md:hidden mt-3 px-4 pt-2 pb-6 bg-white border-t border-slate-100 shadow-lg flex flex-col gap-2">
             <Link
               to="/"
               onClick={() => setIsMenuOpen(false)}
-              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium"
+              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium text-sm"
+              activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
             >
               Home
             </Link>
-            <a
-              href="/#services"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("services");
-              }}
-              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium"
+            <Link
+              to="/services"
+              onClick={() => setIsMenuOpen(false)}
+              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium text-sm"
+              activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
             >
-              What We Offer
-            </a>
-            <a
-              href="/#packages"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("packages");
-              }}
-              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium"
+              Services
+            </Link>
+            <Link
+              to="/tours"
+              onClick={() => setIsMenuOpen(false)}
+              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium text-sm"
+              activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
             >
               Tours &amp; Packages
-            </a>
-            <a
-              href="/#highlights"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollToSection("highlights");
-              }}
-              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium"
+            </Link>
+            <Link
+              to="/destinations"
+              onClick={() => setIsMenuOpen(false)}
+              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium text-sm"
+              activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
             >
-              Addis Highlights
-            </a>
+              Destinations &amp; Sights
+            </Link>
             <Link
               to="/about"
               onClick={() => setIsMenuOpen(false)}
-              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium"
+              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium text-sm"
+              activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
             >
               About Us
             </Link>
+            <Link
+              to="/contact"
+              onClick={() => setIsMenuOpen(false)}
+              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium text-sm"
+              activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
+            >
+              Contact Us
+            </Link>
 
-            <div className="pt-2 border-t border-slate-100 flex flex-col gap-2">
-              <a
-                href="/#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection("contact");
-                }}
-                className="w-full text-center py-2.5 rounded-xl font-semibold text-white bg-brand-600 hover:bg-brand-700 shadow-sm"
+            <div className="pt-3 mt-1 border-t border-slate-100 flex flex-col gap-2">
+              <Link
+                to="/contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="w-full text-center py-2.5 rounded-xl font-semibold text-white bg-brand-600 hover:bg-brand-700 shadow-sm text-sm"
               >
-                Plan Your Journey
-              </a>
+                Book a Tour or Inquiry
+              </Link>
             </div>
           </div>
         )}

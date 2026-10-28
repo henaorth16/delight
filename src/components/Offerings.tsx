@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@tanstack/react-router";
 import { Fade } from "./Fade";
 
 interface Offering {
@@ -117,6 +118,17 @@ export const Offerings: React.FC = () => {
               </div>
             </Fade>
           ))}
+        </div>
+
+        {/* View All Services CTA */}
+        <div className="mt-12 text-center">
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md transition"
+          >
+            <span>Explore All Services &amp; Stays</span>
+            <span>→</span>
+          </Link>
         </div>
       </div>
     </section>

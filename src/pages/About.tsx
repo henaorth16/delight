@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "@tanstack/react-router";
 import { Fade } from "../components/Fade";
 import { MOCK_CONTACT } from "../../utils/utils";
 
@@ -54,7 +55,7 @@ export const About: React.FC = () => {
 
               <div className="lg:col-span-4 rounded-2xl overflow-hidden shadow-md">
                 <img
-                  src="/home.jpg"
+                  src="/addis.jpeg"
                   alt="Ethiopian Landscape"
                   className="w-full h-64 object-cover"
                 />
@@ -173,6 +174,28 @@ export const About: React.FC = () => {
               </div>
             </div>
           </Fade>
+        </div>
+
+        {/* Bottom Connect CTA Banner */}
+        <div className="mt-16 bg-white rounded-3xl border border-slate-200 p-8 sm:p-12 text-center max-w-3xl mx-auto shadow-sm">
+          <h3 className="text-2xl font-bold text-slate-900 mb-3">Ready to Experience Addis Ababa with Us?</h3>
+          <p className="text-sm text-slate-600 mb-6 font-normal">
+            Whether you need a quick layover excursion or an all-inclusive 3-day cultural holiday, Samuel and Elias are ready to welcome you.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/tours"
+              className="px-6 py-3 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow-md transition"
+            >
+              Browse Tour Packages
+            </Link>
+            <Link
+              to="/contact"
+              className="px-6 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs sm:text-sm border border-slate-200 transition"
+            >
+              Contact Our Welcome Desk
+            </Link>
+          </div>
         </div>
       </div>
     </div>

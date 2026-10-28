@@ -46,7 +46,7 @@ export const Under: React.FC = () => {
           {/* Quick Links */}
           <div className="md:col-span-2 sm:col-span-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
-              Navigation
+              Explore Pages
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
@@ -55,23 +55,28 @@ export const Under: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <a href="/#services" className="text-slate-400 hover:text-white transition">
-                  What We Offer
-                </a>
+                <Link to="/services" className="text-slate-400 hover:text-white transition">
+                  Our Services
+                </Link>
               </li>
               <li>
-                <a href="/#packages" className="text-slate-400 hover:text-white transition">
-                  Tour Packages
-                </a>
+                <Link to="/tours" className="text-slate-400 hover:text-white transition">
+                  Tours &amp; Packages
+                </Link>
               </li>
               <li>
-                <a href="/#highlights" className="text-slate-400 hover:text-white transition">
-                  City Highlights
-                </a>
+                <Link to="/destinations" className="text-slate-400 hover:text-white transition">
+                  Addis Landmarks
+                </Link>
               </li>
               <li>
                 <Link to="/about" className="text-slate-400 hover:text-white transition">
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-slate-400 hover:text-white transition">
+                  Contact &amp; Bookings
                 </Link>
               </li>
             </ul>
@@ -80,14 +85,39 @@ export const Under: React.FC = () => {
           {/* Highlights */}
           <div className="md:col-span-2 sm:col-span-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white mb-4">
-              Top Sights
+              Top Destinations
             </h4>
             <ul className="space-y-2.5 text-sm text-slate-400">
-              <li>National Museum &amp; Lucy</li>
-              <li>Entoto Hills Viewpoint</li>
-              <li>Holy Trinity Cathedral</li>
-              <li>Unity Park Complex</li>
-              <li>Coffee Ceremony</li>
+              <li>
+                <Link to="/destinations" className="hover:text-white transition">
+                  National Museum &amp; Lucy
+                </Link>
+              </li>
+              <li>
+                <Link to="/destinations" className="hover:text-white transition">
+                  Entoto Hills &amp; Park
+                </Link>
+              </li>
+              <li>
+                <Link to="/destinations" className="hover:text-white transition">
+                  Holy Trinity Cathedral
+                </Link>
+              </li>
+              <li>
+                <Link to="/destinations" className="hover:text-white transition">
+                  Unity Park Complex
+                </Link>
+              </li>
+              <li>
+                <Link to="/destinations" className="hover:text-white transition">
+                  Merkato Open Market
+                </Link>
+              </li>
+              <li>
+                <Link to="/destinations" className="hover:text-white transition">
+                  Traditional Buna Ceremony
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -97,7 +127,7 @@ export const Under: React.FC = () => {
               Connect With Us
             </h4>
             <p className="text-xs text-slate-400 mb-4">
-              Explore mock social links and sample prototype connection channels:
+              Explore mock social channels and sample prototype connection points:
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -161,13 +191,13 @@ export const Under: React.FC = () => {
             © {new Date().getFullYear()} Delight Tour and Accommodation Prototype. All demonstration rights reserved.
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-slate-400 transition">Privacy Policy</a>
+            <Link to="/about" className="hover:text-slate-400 transition">About</Link>
             <span>•</span>
-            <a href="#" className="hover:text-slate-400 transition">Terms of Service</a>
+            <Link to="/services" className="hover:text-slate-400 transition">Services</Link>
             <span>•</span>
-            <span className="text-slate-400">
-              Prototype Build Demo
-            </span>
+            <Link to="/contact" className="hover:text-slate-400 transition">Contact Desk</Link>
+            <span>•</span>
+            <span className="text-slate-400">Prototype Demo</span>
           </div>
         </div>
       </div>

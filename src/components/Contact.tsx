@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { FaWhatsapp } from "./Icons";
 import { Fade } from "./Fade";
 import { MOCK_CONTACT } from "../../utils/utils";
@@ -104,11 +105,19 @@ export const Contact: React.FC = () => {
 
               <button
                 onClick={handleWhatsAppChat}
-                className="w-full py-3.5 px-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 mb-8"
+                className="w-full py-3.5 px-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 mb-3"
               >
                 <FaWhatsapp size={20} />
                 <span>Demo WhatsApp Chat</span>
               </button>
+
+              <Link
+                to="/contact"
+                className="w-full py-3 px-4 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs rounded-xl transition flex items-center justify-center gap-2 border border-white/20 mb-8"
+              >
+                <span>Open Full Booking Page &amp; FAQs</span>
+                <span>→</span>
+              </Link>
 
               <div className="space-y-4 pt-6 border-t border-white/10 text-sm">
                 <div className="flex items-center gap-3 text-slate-200">
