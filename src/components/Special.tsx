@@ -1,7 +1,8 @@
 import React from "react";
 import { Gold } from "./Gold";
 import { Platinum } from "./Platinum";
-export const Special = () => {
+
+export const Special: React.FC = () => {
   return (
     <div className="flex flex-col gap-5">
       <Platinum />
@@ -9,3 +10,5 @@ export const Special = () => {
     </div>
   );
 };
+
+export default Special;

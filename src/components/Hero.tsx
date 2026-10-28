@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export const Hero = () => {
+export const Hero: React.FC = () => {
   const [scrollPos, setScrollPos] = useState(0);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export const Hero = () => {
   }, []);
 
   const factorBackground = scrollPos;
-  const factorForeground = scrollPos * 0.2;
+
   return (
     <div>
       <header className="flex justify-center px-[10px] items-center text-white min-h-[100vh]">
@@ -27,7 +27,7 @@ export const Hero = () => {
             top: `${factorBackground * 0.06 + 35}vh`,
           }}
         >
-          <h1 className=" md:text-[3rem] text-[2rem] font-[100] font-curley">
+          <h1 className="md:text-[3rem] text-[2rem] font-[100] font-curley">
             City Tour In Addis Ababa
           </h1>
           <h3 className="w-full text-right md:text-xl text-lg font-mont">
@@ -38,3 +38,5 @@ export const Hero = () => {
     </div>
   );
 };
+
+export default Hero;

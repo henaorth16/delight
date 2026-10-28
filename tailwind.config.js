@@ -1,16 +1,15 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "node_modules/flowbite-react/lib/esm/**/*.js",
   ],
   theme: {
     fontFamily: {
-      curley: ['Lobster'],
-      mont: ['Montserrat'],
+      curley: ['Lobster', 'cursive'],
+      mont: ['Montserrat', 'sans-serif'],
     },
     extend: {},
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [],
 };

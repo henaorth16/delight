@@ -1,29 +1,30 @@
 import React from "react";
-import { Fade } from "react-awesome-reveal";
-import { Splide } from "@splidejs/react-splide";
-export const DummyOverviewContent = () => {
+import { Fade } from "./Fade";
+import SplideComponent from "./splide";
+
+export const DummyOverviewContent: React.FC = () => {
   return (
     <div>
-      <div id="overview" className="px-[7px] md:px-[10rem] ">
+      <div id="overview" className="px-[7px] md:px-[10rem]">
         <Fade delay={400}>
           <div className="mt-10">
             <div className="flex justify-between md:flex-row flex-col py-6">
               <div
                 className="flex flex-col gap-4 md:w-[50%] md:text-left text-center"
-                key={`setOne-`}
+                key="setOne-"
               >
-                <span className="tracking-[px] font-[verdana] font-semibold text-gray-600 uppercase text-[0.8rem]">
+                <span className="font-[verdana] font-semibold text-gray-600 uppercase text-[0.8rem]">
                   ____glap with breathtaking..
                 </span>
                 <h1 className="text-[2.6rem] leading-[1] tracking-[-2px] text-[#02b1b4] uppercase font-bold">
-                  <span className="text-[#fba61b]  uppercase font-bold">
+                  <span className="text-[#fba61b] uppercase font-bold">
                     Visit Stunning{" "}
                   </span>
                   Places of Addis Ababa
                 </h1>
 
                 <h1
-                  className="text-2.6rem leading-1 tracking-[-2px] uppercase font-bold"
+                  className="text-[2.6rem] leading-[1] tracking-[-2px] uppercase font-bold"
                   style={{
                     background:
                       "-webkit-linear-gradient(left, #fba61b 50%, #02b1b4 50%)",
@@ -31,7 +32,6 @@ export const DummyOverviewContent = () => {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  {/* {contentSetOne[id].title} */}
                   Addis Ababa
                 </h1>
                 <p className="my-5 leading-[1.4] font-medium text-[#555] text-lg">
@@ -44,12 +44,11 @@ export const DummyOverviewContent = () => {
                   and intricate artwork. Explore the Ethiopian National Archives
                   and Library, a repository of manuscripts and artifacts
                   offering a glimpse into the city's storied history.
-                  {/* {contentSetOne[id].description} */}
                 </p>
               </div>
               <div className="flex justify-center items-center px-8">
                 <img
-                  src="/lucy_2.jpg" // Your image URL
+                  src="/lucy_2.jpg"
                   alt="overview"
                   className="h-[75vh] object-cover md:max-w-[27rem] w-full rounded-[50px]"
                 />
@@ -62,11 +61,11 @@ export const DummyOverviewContent = () => {
           <Fade delay={300}>
             <div className="flex justify-between flex-col md:flex-row-reverse py-6">
               <div className="flex flex-col gap-4 md:w-[50%] md:text-left text-center">
-                <span className="tracking-[px] font-[verdana] font-semibold text-gray-600 uppercase text-[0.8rem]">
+                <span className="font-[verdana] font-semibold text-gray-600 uppercase text-[0.8rem]">
                   ____various
                 </span>
-                <h1 className="text-[2.6rem] leading-1 text-[#02b1b4] uppercase font-bold">
-                  <span className="text-[#fba61b]  uppercase font-bold">
+                <h1 className="text-[2.6rem] leading-[1] text-[#02b1b4] uppercase font-bold">
+                  <span className="text-[#fba61b] uppercase font-bold">
                     Visitable locations{" "}
                   </span>
                   In Addis Ababa
@@ -93,9 +92,11 @@ export const DummyOverviewContent = () => {
         </div>
 
         <Fade>
-          <Splide />
+          <SplideComponent />
         </Fade>
       </div>
     </div>
   );
 };
+
+export default DummyOverviewContent;
