@@ -79,7 +79,7 @@ export const About: React.FC = () => {
                 <img
                   alt="Samuel Tesfaye - Lead Tour Director"
                   className="w-full h-full object-cover object-top"
-                  src="/client_1.jpg"
+                  src="/client1.avif"
                 />
                 <div className="absolute top-4 left-4">
                   <span className="px-3 py-1 bg-white/95 backdrop-blur-md text-xs font-bold text-brand-700 rounded-full shadow-sm">

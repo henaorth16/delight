@@ -116,7 +116,7 @@ export const Hero: React.FC = () => {
               {/* Main Image Card */}
               <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] bg-slate-100">
                 <img
-                  src="/addis.jpg"
+                  src="/addis.jpeg"
                   alt="Scenic Addis Ababa"
                   className="w-full h-full object-cover"
                 />
@@ -138,7 +138,7 @@ export const Hero: React.FC = () => {
               {/* Floating Testimonial Card */}
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 max-w-xs hidden sm:flex items-center gap-3">
                 <img
-                  src="/client_1.jpg"
+                  src="/client1.avif"
                   alt="Tour Guide Samuel"
                   className="w-12 h-12 rounded-full object-cover border-2 border-brand-500 shrink-0"
                 />

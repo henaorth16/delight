@@ -12,7 +12,7 @@ export const WhyChooseUs: React.FC = () => {
               <div className="relative mx-auto max-w-md">
                 <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] bg-slate-100">
                   <img
-                    src="/client_1.jpg"
+                    src="/client1.avif"
                     alt="Samuel Tesfaye, Founder"
                     className="w-full h-full object-cover object-top"
                   />
