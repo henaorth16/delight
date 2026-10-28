@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaWhatsapp } from "./Icons";
+import { MOCK_CONTACT } from "../../utils/utils";
 
 export const Hero: React.FC = () => {
   const [selectedTour, setSelectedTour] = useState("1-Day City Highlights");
@@ -8,9 +9,9 @@ export const Hero: React.FC = () => {
   const handleQuickInquire = (e: React.FormEvent) => {
     e.preventDefault();
     const message = encodeURIComponent(
-      `Hello Delight Tour! I am interested in booking a ${selectedTour} for ${guests}. Can you provide details and availability?`
+      `[Demo Inquiry] Hello Delight Tour! I am interested in booking a ${selectedTour} for ${guests}. Can you provide details and availability?`
     );
-    window.open(`https://wa.me/251984529929?text=${message}`, "_blank");
+    window.open(`${MOCK_CONTACT.whatsappUrl}?text=${message}`, "_blank");
   };
 
   return (
@@ -26,7 +27,7 @@ export const Hero: React.FC = () => {
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-50 border border-brand-200/80 text-brand-800 text-xs font-semibold mb-6 shadow-sm">
               <span className="flex h-2 w-2 rounded-full bg-brand-600" />
-              <span>Authentic Addis Ababa Tours &amp; Accommodation</span>
+              <span>Authentic Addis Ababa Tours &amp; Accommodation • Prototype</span>
             </div>
 
             {/* Main Headline */}
@@ -87,7 +88,7 @@ export const Hero: React.FC = () => {
                   className="w-full h-full py-3 px-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2"
                 >
                   <FaWhatsapp size={16} />
-                  <span>Ask on WhatsApp</span>
+                  <span>Demo WhatsApp</span>
                 </button>
               </form>
             </div>
@@ -138,7 +139,7 @@ export const Hero: React.FC = () => {
               <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 max-w-xs hidden sm:flex items-center gap-3">
                 <img
                   src="/client_1.jpg"
-                  alt="Tour Guide Abel"
+                  alt="Tour Guide Samuel"
                   className="w-12 h-12 rounded-full object-cover border-2 border-brand-500 shrink-0"
                 />
                 <div>
@@ -146,10 +147,10 @@ export const Hero: React.FC = () => {
                     ★★★★★
                   </div>
                   <p className="text-xs font-medium text-slate-800 line-clamp-2 mt-0.5">
-                    "Abel and the team made our stay effortless and memorable!"
+                    "Samuel and the team made our stay effortless and memorable!"
                   </p>
                   <span className="text-[10px] text-slate-400 font-semibold uppercase">
-                    Sarah &amp; David — UK
+                    Sample Review — Guest Feedback
                   </span>
                 </div>
               </div>

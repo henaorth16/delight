@@ -7,6 +7,7 @@ import {
   BsWechat,
   BsWhatsapp,
 } from "./Icons";
+import { MOCK_CONTACT } from "../../utils/utils";
 
 export const Under: React.FC = () => {
   return (
@@ -27,17 +28,17 @@ export const Under: React.FC = () => {
             </Link>
             <p className="mt-4 text-sm text-slate-400 max-w-sm leading-relaxed font-normal">
               Specialized city tour guidance and boutique accommodation services in Addis Ababa, Ethiopia.
-              We take pride in delivering unforgettable journeys with personal family care.
+              Designed as a prototype demonstration platform.
             </p>
             <div className="mt-6 flex items-center gap-3">
               <a
-                href="https://wa.me/251984529929"
+                href={MOCK_CONTACT.whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-emerald-300 bg-emerald-950/80 border border-emerald-700/50 hover:bg-emerald-900 transition"
               >
                 <BsWhatsapp size={14} />
-                <span>+251 98 452 9929</span>
+                <span>{MOCK_CONTACT.phoneFormatted}</span>
               </a>
             </div>
           </div>
@@ -96,40 +97,49 @@ export const Under: React.FC = () => {
               Connect With Us
             </h4>
             <p className="text-xs text-slate-400 mb-4">
-              Follow our daily Addis adventures and guest stories on social media:
+              Explore mock social links and sample prototype connection channels:
             </p>
             <div className="flex items-center gap-3">
               <a
-                href="https://www.facebook.com/profile.php?id=61554133757479&mibextid=ZbWKwL"
+                href="https://facebook.com/example"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-slate-300 hover:text-white transition"
-                aria-label="Facebook"
+                aria-label="Facebook (Demo)"
               >
                 <BsFacebook size={16} />
               </a>
               <a
-                href="https://www.instagram.com/delight_tours_accomodation?igsh=MTVuYjAwbGpweXZhMw=="
+                href="https://instagram.com/example"
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-slate-300 hover:text-white transition"
-                aria-label="Instagram"
+                aria-label="Instagram (Demo)"
               >
                 <BsInstagram size={16} />
               </a>
               <a
-                href="https://wa.me/qr/A7SKJLRIQAJZF1"
+                href="https://t.me/example"
+                target="_blank"
+                rel="noreferrer"
+                className="w-9 h-9 rounded-full bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-slate-300 hover:text-white transition"
+                aria-label="Telegram (Demo)"
+              >
+                <BsTelegram size={16} />
+              </a>
+              <a
+                href={MOCK_CONTACT.whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
                 className="w-9 h-9 rounded-full bg-slate-800 hover:bg-emerald-600 flex items-center justify-center text-slate-300 hover:text-white transition"
-                aria-label="WhatsApp"
+                aria-label="WhatsApp (Demo)"
               >
                 <BsWhatsapp size={16} />
               </a>
               <a
                 href="#"
                 className="w-9 h-9 rounded-full bg-slate-800 hover:bg-brand-600 flex items-center justify-center text-slate-300 hover:text-white transition"
-                aria-label="WeChat"
+                aria-label="WeChat (Demo)"
               >
                 <BsWechat size={16} />
               </a>
@@ -138,8 +148,8 @@ export const Under: React.FC = () => {
             <div className="mt-4 flex items-center gap-3 bg-slate-800/60 p-2.5 rounded-xl border border-slate-700/60">
               <img src="/qr.png" alt="Scan QR" className="w-10 h-10 object-contain rounded bg-white p-0.5" />
               <div className="text-[11px] text-slate-300 leading-tight">
-                <span className="font-semibold text-white block">Instant WhatsApp</span>
-                Scan QR code to start chat
+                <span className="font-semibold text-white block">Mock QR Code</span>
+                Demo channel access
               </div>
             </div>
           </div>
@@ -148,7 +158,7 @@ export const Under: React.FC = () => {
         {/* Bottom Credits */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            © {new Date().getFullYear()} Delight Tour and Accommodation. All rights reserved.
+            © {new Date().getFullYear()} Delight Tour and Accommodation Prototype. All demonstration rights reserved.
           </div>
           <div className="flex items-center gap-4">
             <a href="#" className="hover:text-slate-400 transition">Privacy Policy</a>
@@ -156,14 +166,7 @@ export const Under: React.FC = () => {
             <a href="#" className="hover:text-slate-400 transition">Terms of Service</a>
             <span>•</span>
             <span className="text-slate-400">
-              Made by{" "}
-              <a href="https://ezoltech.netlify.app" target="_blank" rel="noreferrer" className="underline hover:text-brand-400">
-                ezoltech
-              </a>{" "}
-              &amp;{" "}
-              <a href="https://contact-henok.netlify.app/" target="_blank" rel="noreferrer" className="underline hover:text-brand-400">
-                henaorth
-              </a>
+              Prototype Build Demo
             </span>
           </div>
         </div>

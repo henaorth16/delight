@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
 import { FaWhatsapp } from "./Icons";
+import { MOCK_CONTACT } from "../../utils/utils";
 
 export const Nav: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,7 +50,7 @@ export const Nav: React.FC = () => {
                   Delight<span className="text-brand-600">.</span>
                 </span>
                 <span className="text-[10px] uppercase tracking-widest text-slate-500 font-semibold -mt-1">
-                  Tour &amp; Accommodation
+                  Tour &amp; Accommodation • Prototype
                 </span>
               </div>
             </Link>
@@ -105,7 +106,9 @@ export const Nav: React.FC = () => {
             {/* Right Action Buttons */}
             <div className="hidden lg:flex items-center gap-4">
               <a
-                href="https://wa.me/251984529929"
+                href={`${MOCK_CONTACT.whatsappUrl}?text=${encodeURIComponent(
+                  "Hello! I am inquiring about tour availability (Demo)."
+                )}`}
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition"
@@ -115,7 +118,7 @@ export const Nav: React.FC = () => {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
                 <FaWhatsapp size={14} className="text-emerald-600" />
-                <span>+251 98 452 9929</span>
+                <span>{MOCK_CONTACT.phoneFormatted}</span>
               </a>
 
               <a
@@ -133,7 +136,9 @@ export const Nav: React.FC = () => {
             {/* Mobile Hamburger Toggle */}
             <div className="flex md:hidden items-center gap-2">
               <a
-                href="https://wa.me/251984529929"
+                href={`${MOCK_CONTACT.whatsappUrl}?text=${encodeURIComponent(
+                  "Hello! Tour inquiry demo."
+                )}`}
                 target="_blank"
                 rel="noreferrer"
                 className="p-2 text-emerald-600 hover:bg-emerald-50 rounded-full"

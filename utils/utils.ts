@@ -1,32 +1,37 @@
-// utils/utils.ts
+// utils/utils.ts - Prototype Mock Utilities
 
-// Function to check if email exists in local storage
 export const getEmailFromLocalStorage = (): string | null => {
   const email = localStorage.getItem("email");
   return email ? email : null;
 };
 
-// Function to check if token exists in local storage
 export const getTokenFromLocalStorage = (): string | null => {
   const token = localStorage.getItem("token");
   return token ? token : null;
 };
 
-// Function to set email in local storage
 export const setEmailInLocalStorage = (email: string): void => {
   localStorage.setItem("email", email);
 };
 
-// Function to set token in local storage
 export const setTokenInLocalStorage = (token: string): void => {
   localStorage.setItem("token", token);
 };
 
-// Function to clear email and token from local storage
 export const clearLocalStorage = (): void => {
   localStorage.removeItem("email");
   localStorage.removeItem("token");
 };
 
-export const BASE_URL = "https://delightcity.onrender.com/api/v1";
-export const BASE_IMAGE_URL = "https://delightcity.onrender.com/";
+// Mock prototype API configuration
+export const BASE_URL = "https://api.example.com/v1";
+export const BASE_IMAGE_URL = "/";
+
+// Mock contact info for prototype
+export const MOCK_CONTACT = {
+  phone: "+251 90 000 0000",
+  phoneFormatted: "+251 90 000 0000",
+  email: "inquiry@delighttours.example.com",
+  whatsappUrl: "https://wa.me/251900000000",
+  address: "Bole Sub-City, Commercial Tower 4th Floor, Addis Ababa, Ethiopia",
+};

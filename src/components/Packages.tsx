@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Fade } from "./Fade";
 import { FaWhatsapp } from "./Icons";
+import { MOCK_CONTACT } from "../../utils/utils";
 
 interface PackagePlan {
   id: string;
@@ -83,11 +84,11 @@ export const Packages: React.FC = () => {
 
   const handleBook = (pkg: PackagePlan) => {
     const text = encodeURIComponent(
-      `Hello Delight Tour! I would like to book the ${pkg.name} for ${duration} ${
+      `[Demo Inquiry] Hello Delight Tour! I would like to book the ${pkg.name} for ${duration} ${
         duration === "1" ? "Day" : "Days"
       } ($${getPrice(pkg)}). Could you provide availability?`
     );
-    window.open(`https://wa.me/251984529929?text=${text}`, "_blank");
+    window.open(`${MOCK_CONTACT.whatsappUrl}?text=${text}`, "_blank");
   };
 
   return (
