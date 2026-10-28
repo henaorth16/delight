@@ -1,22 +1,32 @@
-import React, { lazy, Suspense } from "react";
-import { Hero } from "../components/Hero";
+import React, { Suspense } from "react";
+import Hero from "../components/Hero";
+import Offerings from "../components/Offerings";
+import Packages from "../components/Packages";
+import Highlights from "../components/Highlights";
+import WhyChooseUs from "../components/WhyChooseUs";
+import Contact from "../components/Contact";
 import Loader from "../components/Loader";
-import { Contact } from "../components/Contact";
-import { DummyGallery } from "../components/DummyGallery";
-import { DummyPriceContent } from "../components/DummyPriceContent";
-import { DummyOverviewContent } from "../components/DummyOverviewContent";
-
-const Features = lazy(() => import("../components/Features"));
 
 export const Home: React.FC = () => {
   return (
     <Suspense fallback={<Loader />}>
-      <div className="flex flex-col gap-7">
+      <div className="flex flex-col w-full">
+        {/* 1. Hero with Quick Booking Bar */}
         <Hero />
-        <DummyOverviewContent />
-        <DummyPriceContent />
-        <Features />
-        <DummyGallery />
+
+        {/* 2. Core Business Offerings (Tours, Stays, Transport) */}
+        <Offerings />
+
+        {/* 3. Streamlined Packages & Transparent Pricing */}
+        <Packages />
+
+        {/* 4. Sights & Landmarks of Addis Ababa */}
+        <Highlights />
+
+        {/* 5. Trust & Why Choose Delight */}
+        <WhyChooseUs />
+
+        {/* 6. Direct Contact & WhatsApp Inquiry */}
         <Contact />
       </div>
     </Suspense>

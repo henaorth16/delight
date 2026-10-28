@@ -1,105 +1,41 @@
-@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: light;
+}
+
 html {
   scroll-behavior: smooth;
-  transition: 0.5s;
-  background-color: #e8e5e5;
-}
-.contact {
-  background-color: #fff;
+  background-color: #fafafa;
+  color: #0f172a;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
-.set-margin {
-  margin: 20px;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+  color: #1e293b;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-p {
-  opacity: 0.8;
-  font-family: Poppins, "sans-serif";
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
 }
-
-h1 {
-  opacity: 0.8;
-  font-family: Poppins, "sans-serif";
-  font-weight: 200;
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
 }
-
-h2 {
-  opacity: 0.8;
-  font-family: Poppins, "sans-serif";
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
 }
-
-h3 {
-  opacity: 0.8;
-  font-family: Poppins, "sans-serif";
-}
-p, h1, h2, h3, h4{
-  pointer-events: none;
-}
-.pricing-sec p {
-  @apply px-6 mt-1 mb-3 leading-[1.4] font-medium;
-}
-.pricing-sec h2 {
-  @apply px-6 mt-3 font-medium;
-}
-
-@media screen and (max-width: 810px) {
-  .menu-open {
-    height: 100vh;
-    background-color: rgba(27, 27, 27, 1);
-    justify-content: space-between;
-    overflow-y: hidden;
-  }
-  .menu-open ul {
-    transition: all 0.6s;
-  }
-  .menu-open ul li:not(:last-child) {
-    padding-bottom: 4px;
-    border-bottom: 1px solid rgba(75, 75, 75, 0.726);
-  }
-  .menu-open ul li:hover {
-    background-color: rgba(105, 105, 105, 0.212);
-  }
-  .menu-open ul li a {
-    width: 100%;
-    height: 100%;
-    padding-inline: 2rem;
-    /* background-color: red; */
-    font-size: 1.4rem;
-  }
-}
-
-.menu-open ul li {
-  border-bottom: 2px solid transparent;
-  transition: 0.6s;
-}
-.menu-open ul li:hover {
-  border-bottom: 2px solid #fba61b;
-}
-
-header,
-footer {
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  background-blend-mode: darken;
-}
-header {
-  background-color: rgba(0, 0, 0, 0.377);
-  background-image: url("/home.jpg");
-}
-/* footer {
-  background-color: rgba(23, 49, 40, 0.637);
-  background-image: url("https://images.unsplash.com/photo-1547093349-65cdba98369a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fG1vdW50YWlufGVufDB8fDB8fHww");
-  background-attachment: unset;
-} */
-.contact {
-  background-color: #f7f7f7;
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
