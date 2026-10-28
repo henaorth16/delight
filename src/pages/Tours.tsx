@@ -1,144 +1,39 @@
 import React, { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { Fade } from "../components/Fade";
-import { FaWhatsapp } from "../components/Icons";
-import { MOCK_CONTACT } from "../../utils/utils";
-
-interface TourItem {
-  id: string;
-  name: string;
-  tag: string;
-  duration: string;
-  price: number;
-  featured?: boolean;
-  overview: string;
-  schedule: { time: string; activity: string }[];
-  inclusions: string[];
-  exclusions: string[];
-}
-
-const allTours: TourItem[] = [
-  {
-    id: "silver-day",
-    name: "The Essential Addis Highlights",
-    tag: "1-Day Express",
-    duration: "1 Day (8 Hours, 09:00 – 17:00)",
-    price: 70,
-    overview:
-      "Designed for travelers with limited time or on layovers. Covers world-famous archaeological discoveries, panoramic viewpoints, and authentic coffee rituals.",
-    schedule: [
-      { time: "09:00", activity: "Complimentary hotel/guest house pickup in private vehicle" },
-      { time: "09:30", activity: "National Museum: Explore Lucy (Dinknesh) with our historian" },
-      { time: "11:30", activity: "Holy Trinity Cathedral: Emperor Haile Selassie tomb & murals" },
-      { time: "13:00", activity: "Traditional Ethiopian Lunch (Injera, Doro Wat or vegetarian feast)" },
-      { time: "14:15", activity: "Authentic coffee ceremony: fresh green bean roasting & tasting" },
-      { time: "15:30", activity: "Mount Entoto: 3,200m panoramic overlook of the capital" },
-      { time: "16:30", activity: "Addis Merkato: Guided artisan & spice quarter stroll" },
-      { time: "17:30", activity: "Comfortable drop-off at your hotel or Bole Airport" },
-    ],
-    inclusions: [
-      "Professional English/Arabic/Amharic speaking licensed guide",
-      "Private air-conditioned vehicle & dedicated driver",
-      "All museum and historic site entrance tickets",
-      "Authentic cultural lunch & bottled mineral water",
-      "Complete Ethiopian coffee ceremony tasting",
-    ],
-    exclusions: ["Alcoholic beverages", "Personal souvenir purchases", "International flights"],
-  },
-  {
-    id: "gold-culture",
-    name: "Ethiopian Heritage & Cultural Explorer",
-    tag: "2-Day Journey",
-    duration: "2 Full Days",
-    price: 160,
-    featured: true,
-    overview:
-      "A deeper voyage into the historical cradle of East Africa. Features scenic highland forests, royal palaces, and an unforgettable evening of live traditional music.",
-    schedule: [
-      { time: "Day 1 - Morning", activity: "National Museum, Ethnological Museum & Arat Kilo landmarks" },
-      { time: "Day 1 - Afternoon", activity: "Unity Park & Grand Palace historic state rooms" },
-      { time: "Day 1 - Evening", activity: "Cultural dinner with live traditional Eskista dance & music" },
-      { time: "Day 2 - Morning", activity: "Scenic ascent to Entoto Maryam Church & eucalyptus trails" },
-      { time: "Day 2 - Afternoon", activity: "St. George's Cathedral & curated Merkato artisan tour" },
-      { time: "Day 2 - Evening", activity: "Specialty sunset coffee tasting overlooking Bole skyline" },
-    ],
-    inclusions: [
-      "Dedicated private vehicle for both full days with fuel",
-      "All admission fees to Unity Park, National Museum & palaces",
-      "Two traditional lunches + one premier cultural dinner show",
-      "Daily bottled water, fresh seasonal fruits & snacks",
-      "Full flexibility to adjust daily start times and stops",
-    ],
-    exclusions: ["Guest house accommodation (can be added)", "Gratuities for driver/guide"],
-  },
-  {
-    id: "platinum-vip",
-    name: "Imperial Platinum VIP Stay & Tour",
-    tag: "3-Day All-Inclusive",
-    duration: "3 Days / 2 Nights",
-    price: 290,
-    overview:
-      "Our premier stress-free package. Includes private boutique guest house stay, airport VIP greeting, all meals, night skyline tours, and around-the-clock host assistance.",
-    schedule: [
-      { time: "Day 1", activity: "VIP Airport Meet-and-Greet, Guest House check-in, Old City landmarks tour, Welcome dinner" },
-      { time: "Day 2", activity: "Entoto Mountain nature & adventure park, Unity Palace, cultural culinary masterclass, Night city tour" },
-      { time: "Day 3", activity: "Merkato artisan treasure hunt, coffee roastery visit, relaxation & on-time Bole Airport departure transfer" },
-    ],
-    inclusions: [
-      "2 Nights in vetted luxury guest house / boutique accommodation",
-      "Round-trip Bole International Airport VIP transfers",
-      "All meals: 3 breakfasts, 3 gourmet lunches, 2 dinners",
-      "Dedicated private 4x4 SUV with personal chauffeur for 72 hours",
-      "Personal host on call 24/7 for shopping, translation, and logistics",
-    ],
-    exclusions: ["Personal international travel insurance", "Excess baggage fees"],
-  },
-  {
-    id: "bishoftu-escape",
-    name: "Bishoftu Crater Lakes & Nature Escape",
-    tag: "Day Trip Excursion",
-    duration: "1 Full Day (45km outside Addis)",
-    price: 85,
-    overview:
-      "Escape the city to the volcanic resort town of Bishoftu (Debre Zeit). Marvel at five crater lakes, luxuriate in lakeside dining, and spot rare endemic birds.",
-    schedule: [
-      { time: "08:30", activity: "Depart Addis Ababa along the modern expressway to Bishoftu" },
-      { time: "09:45", activity: "Arrival at Lake Babogaya: boat cruise & bird watching" },
-      { time: "11:30", activity: "Scenic rim walk around Lake Hora with panoramic viewpoints" },
-      { time: "13:00", activity: "Lakeside resort lunch featuring fresh grilled fish and injera" },
-      { time: "15:00", activity: "Spa relaxation or visit to local artisan workshops" },
-      { time: "16:30", activity: "Scenic afternoon drive returning to Addis Ababa" },
-    ],
-    inclusions: [
-      "Private return expressway transit in air-conditioned 4x4",
-      "Lake boat cruise fees & local conservation tickets",
-      "3-course lakeside lunch with soft drinks",
-      "Experienced regional nature & birding guide",
-    ],
-    exclusions: ["Spa treatments & resort massages", "Alcoholic cocktails"],
-  },
-];
+import { FiLock } from "../components/Icons";
+import { TOURS_DATA, TourPackage, saveCheckoutOrder } from "../data/mockData";
 
 export const Tours: React.FC = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<string>("all");
 
   const filteredTours =
     activeTab === "all"
-      ? allTours
-      : allTours.filter((t) =>
+      ? TOURS_DATA
+      : TOURS_DATA.filter((t) =>
           activeTab === "day"
             ? t.tag.includes("1-Day")
             : activeTab === "multi"
             ? t.tag.includes("2-Day") || t.tag.includes("3-Day")
-            : t.tag.includes("Day Trip")
+            : t.id.includes("lalibela")
         );
 
-  const handleBook = (tour: TourItem) => {
-    const text = encodeURIComponent(
-      `[Demo Inquiry] Hello Delight Tour! I would like to book "${tour.name}" ($${tour.price}/person). Please provide current availability and custom details.`
-    );
-    window.open(`${MOCK_CONTACT.whatsappUrl}?text=${text}`, "_blank");
+  const handleBook = (tour: TourPackage) => {
+    saveCheckoutOrder({
+      tourId: tour.id,
+      tourName: tour.name,
+      tag: tour.tag,
+      duration: tour.duration,
+      guests: 2,
+      pricePerPerson: tour.price,
+      totalPrice: tour.price * 2,
+      currency: "USD",
+      inclusions: tour.inclusions,
+    });
+    navigate({ to: "/checkout" });
   };
+
 
   return (
     <div className="bg-slate-50/60 min-h-screen py-16 lg:py-24">
@@ -167,7 +62,7 @@ export const Tours: React.FC = () => {
                     : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
                 }`}
               >
-                All Packages ({allTours.length})
+                All Packages ({TOURS_DATA.length})
               </button>
               <button
                 onClick={() => setActiveTab("day")}
@@ -197,7 +92,7 @@ export const Tours: React.FC = () => {
                     : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
                 }`}
               >
-                Regional Excursions
+                ✈️ Lalibela Flight Wonder
               </button>
             </div>
           </div>
@@ -242,8 +137,8 @@ export const Tours: React.FC = () => {
                       onClick={() => handleBook(tour)}
                       className="w-full mt-3 py-2.5 px-4 bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs rounded-xl transition flex items-center justify-center gap-2 shadow-sm"
                     >
-                      <FaWhatsapp size={14} />
-                      <span>Book on WhatsApp</span>
+                      <FiLock size={14} />
+                      <span>Book Tour Online (${tour.price})</span>
                     </button>
                   </div>
                 </div>
@@ -312,18 +207,29 @@ export const Tours: React.FC = () => {
           ))}
         </div>
 
-        {/* Footer Contact Banner */}
-        <div className="mt-16 text-center bg-white p-8 rounded-3xl border border-slate-200 shadow-sm max-w-2xl mx-auto">
-          <h3 className="text-xl font-bold text-slate-900 mb-2">Have a Unique Group or Schedule?</h3>
+        {/* Footer Custom Builder Banner */}
+        <div className="mt-16 text-center bg-white p-8 sm:p-10 rounded-3xl border border-slate-200 shadow-sm max-w-2xl mx-auto">
+          <span className="text-xs font-bold uppercase tracking-wider text-brand-600 bg-brand-50 px-3 py-1 rounded-full border border-brand-100">
+            Tailor-Made Experience
+          </span>
+          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mt-3 mb-2">Have a Unique Group or Schedule?</h3>
           <p className="text-xs sm:text-sm text-slate-600 mb-6 font-normal">
-            We happily craft custom packages for academic researchers, photography expeditions, and large family reunions.
+            Use our interactive cost calculator to select specific landmarks, 4x4 vehicles, and guest house stays with instant transparent pricing.
           </p>
-          <Link
-            to="/contact"
-            className="inline-block px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm transition"
-          >
-            Request a Custom Itinerary
-          </Link>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <Link
+              to="/plan"
+              className="px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-xs sm:text-sm shadow-md transition"
+            >
+              ✨ Try Custom Trip Builder
+            </Link>
+            <Link
+              to="/contact"
+              className="px-6 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs sm:text-sm border border-slate-200 transition"
+            >
+              Contact Booking Desk
+            </Link>
+          </div>
         </div>
       </div>
     </div>

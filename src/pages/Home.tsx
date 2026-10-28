@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import Hero from "../components/Hero";
 import Offerings from "../components/Offerings";
 import Packages from "../components/Packages";
+import PlannerBanner from "../components/PlannerBanner";
 import Highlights from "../components/Highlights";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Contact from "../components/Contact";
@@ -20,13 +21,16 @@ export const Home: React.FC = () => {
         {/* 3. Streamlined Packages & Transparent Pricing */}
         <Packages />
 
-        {/* 4. Sights & Landmarks of Addis Ababa */}
+        {/* 4. Interactive Custom Trip Builder & Cost Calculator Spotlight */}
+        <PlannerBanner />
+
+        {/* 5. Sights & Landmarks of Addis Ababa */}
         <Highlights />
 
-        {/* 5. Trust & Why Choose Delight */}
+        {/* 6. Trust & Why Choose Delight */}
         <WhyChooseUs />
 
-        {/* 6. Direct Contact & WhatsApp Inquiry */}
+        {/* 7. Direct Contact & WhatsApp Inquiry */}
         <Contact />
       </div>
     </Suspense>

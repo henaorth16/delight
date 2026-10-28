@@ -2,87 +2,7 @@ import React from "react";
 import { Link } from "@tanstack/react-router";
 import { Fade } from "../components/Fade";
 import { FaWhatsapp } from "../components/Icons";
-import { MOCK_CONTACT } from "../../utils/utils";
-
-interface ServiceDetail {
-  id: string;
-  badge: string;
-  title: string;
-  subtitle: string;
-  description: string;
-  image: string;
-  highlights: string[];
-  specs: { label: string; value: string }[];
-}
-
-const detailedServices: ServiceDetail[] = [
-  {
-    id: "city-tours",
-    badge: "Exploration & Culture",
-    title: "Guided Addis Ababa City Tours",
-    subtitle: "Immersive private day tours led by licensed local historians",
-    description:
-      "Our signature city tours guide you through millennia of history, ancient human origins, and dynamic contemporary urban life. We handle all logistics—from skip-the-line museum tickets to private vehicle navigation through the city.",
-    image: "/addis.jpeg",
-    highlights: [
-      "Exclusive access to the National Museum & Lucy (Dinknesh) palaeontology gallery",
-      "Panoramic views of the entire city from Mount Entoto (3,200m altitude)",
-      "Traditional coffee roasting ceremony with local culinary lunch",
-      "Visits to Unity Park Grand Palace and historic St. George's Cathedral",
-      "Custom pace tailored for families, photographers, and solo adventurers",
-    ],
-    specs: [
-      { label: "Duration", value: "Half-Day (4h) or Full-Day (8h)" },
-      { label: "Group Size", value: "Private (1 to 8 guests)" },
-      { label: "Languages", value: "English, Arabic, Amharic" },
-      { label: "Pickup", value: "Complimentary hotel/guest house pickup" },
-    ],
-  },
-  {
-    id: "accommodations",
-    badge: "Comfort & Hospitality",
-    title: "Curated Guest House Stays",
-    subtitle: "Peaceful, verified accommodations in premier Addis neighborhoods",
-    description:
-      "Avoid sterile hotels and experience genuine Ethiopian warmth. We partner with handpicked guest houses in safe, vibrant neighborhoods like Bole and Kazanchis, offering full security, fiber Wi-Fi, and personalized home-style breakfasts.",
-    image: "/client1.avif",
-    highlights: [
-      "Convenient access to international restaurants, cafes, and Bole Airport",
-      "High-speed fiber internet and uninterrupted backup power generators",
-      "Daily fresh breakfast featuring Ethiopian and continental options",
-      "Dedicated 24/7 on-call host for reservations and local advice",
-      "Clean, modern private rooms with en-suite bathrooms and work desks",
-    ],
-    specs: [
-      { label: "Locations", value: "Bole, Kazanchis, Old Airport" },
-      { label: "Room Types", value: "Deluxe Queen, Twin Suites, Family Units" },
-      { label: "Amenities", value: "Fiber Wi-Fi, Generator, Hot Water, Breakfast" },
-      { label: "Check-in", value: "Flexible 24/7 with advance notice" },
-    ],
-  },
-  {
-    id: "transport",
-    badge: "Seamless Mobility",
-    title: "Private Chauffeur & Airport Mobility",
-    subtitle: "Modern air-conditioned 4x4 SUVs and minivans with expert drivers",
-    description:
-      "Navigating traffic in a bustling metropolis requires local expertise. Our chauffeured transport service gives you total flexibility, whether you need on-time Bole Airport transfers, full-day shopping in Merkato, or weekend excursions to crater lakes.",
-    image: "/addis1.jpg",
-    highlights: [
-      "Meet-and-greet right outside Bole International Airport terminal",
-      "Late-model Toyota Land Cruisers, Prados, and executive HiAce vans",
-      "Courteous, licensed drivers fluent in English with impeccable safety records",
-      "Fuel, insurance, and parking permits fully covered in all packages",
-      "Available for inter-city day trips (Debre Zeit, Wenchi Crater Lake)",
-    ],
-    specs: [
-      { label: "Fleet", value: "Toyota 4x4 SUVs, VIP Vans (1–12 seats)" },
-      { label: "Availability", value: "24/7 on-demand or pre-scheduled" },
-      { label: "Coverage", value: "All Addis Ababa & Oromia regional day trips" },
-      { label: "Luggage", value: "Spacious trunk capacity for multiple bags" },
-    ],
-  },
-];
+import { DETAILED_SERVICES, MOCK_CONTACT } from "../data/mockData";
 
 export const Services: React.FC = () => {
   return (
@@ -106,7 +26,7 @@ export const Services: React.FC = () => {
 
         {/* Detailed Service Blocks */}
         <div className="space-y-20">
-          {detailedServices.map((service, index) => {
+          {DETAILED_SERVICES.map((service, index) => {
             const isReversed = index % 2 !== 0;
             return (
               <Fade delay={150 * (index + 1)} key={service.id}>

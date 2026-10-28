@@ -18,6 +18,12 @@ interface Landmark {
 
 const landmarks: Landmark[] = [
   {
+    title: "Rock Churches of Lalibela",
+    tag: "UNESCO 8th Wonder",
+    description: "11 monolithic medieval cave churches carved from solid basalt rock, featuring cross-shaped Bete Giyorgis and ancient subterranean prayer tunnels.",
+    image: "/Lalibela.jpg",
+  },
+  {
     title: "National Museum & Lucy",
     tag: "History & Evolution",
     description: "Home of the famous 3.2-million-year-old hominid fossil 'Lucy' (Dinknesh), ancient royal relics, and Ethiopian archaeological treasures.",
@@ -30,22 +36,16 @@ const landmarks: Landmark[] = [
     image: "/entoto.jpg",
   },
   {
-    title: "Holy Trinity & St. George's",
-    tag: "Religious Heritage",
-    description: "Architectural masterpieces featuring stained glass artistry, traditional Ethiopian Orthodox murals, and resting place of Emperor Haile Selassie.",
-    image: Img1,
+    title: "Unity Park & Grand Palace",
+    tag: "Cultural Sanctuary",
+    description: "The historical throne room of Ethiopian emperors transformed into a world-class park with palace museums and botanical gardens.",
+    image: "/unity.jpg",
   },
   {
     title: "Ethiopian Coffee & Cuisine",
     tag: "Culinary & Coffee",
     description: "Experience the birthplace of coffee through an authentic roasting ceremony, fresh injera, rich stews, and aromatic local spices.",
     image: "/bunna.jpeg",
-  },
-  {
-    title: "Unity Park & Grand Palace",
-    tag: "Cultural Sanctuary",
-    description: "The historical throne room of Ethiopian emperors transformed into a world-class park with palace museums and botanical gardens.",
-    image: "/unity.jpg",
   },
   {
     title: "Vibrant Merkato & Local Life",

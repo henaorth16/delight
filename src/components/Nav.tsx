@@ -21,98 +21,88 @@ export const Nav: React.FC = () => {
       <div
         className={`w-full transition-all duration-300 ${
           isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/70 py-3"
-            : "bg-white/90 backdrop-blur-sm border-b border-slate-100 py-4"
+            ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200/80 py-3"
+            : "bg-white/90 backdrop-blur-sm border-b border-slate-100 py-3.5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Brand Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
+            {/* Brand Logo (also serves as Home link) */}
+            <Link to="/" className="flex items-center gap-2.5 group">
               <img
                 src="/logo.svg"
-                className="h-9 w-auto transition-transform group-hover:scale-105"
+                className="h-8 w-auto transition-transform group-hover:scale-105"
                 alt="Delight Tour Logo"
               />
               <div className="flex flex-col">
-                <span className="text-xl font-bold tracking-tight text-slate-900 group-hover:text-brand-700 transition">
+                <span className="text-xl font-extrabold tracking-tight text-slate-900 group-hover:text-brand-700 transition">
                   Delight<span className="text-brand-600">.</span>
                 </span>
-                <span className="text-[10px] uppercase tracking-widest text-slate-500 font-semibold -mt-1">
-                  Tour &amp; Accommodation • Prototype
+                <span className="text-[10px] uppercase tracking-wider text-slate-400 font-semibold -mt-1 hidden sm:block">
+                  Addis Ababa • Tours &amp; Stays
                 </span>
               </div>
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
-              <Link
-                to="/"
-                className="hover:text-brand-600 transition"
-                activeProps={{ className: "text-brand-600 font-semibold" }}
-              >
-                Home
-              </Link>
-              <Link
-                to="/services"
-                className="hover:text-brand-600 transition"
-                activeProps={{ className: "text-brand-600 font-semibold" }}
-              >
-                Services
-              </Link>
+            {/* Desktop Navigation - 4 clean essential links */}
+            <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
               <Link
                 to="/tours"
                 className="hover:text-brand-600 transition"
-                activeProps={{ className: "text-brand-600 font-semibold" }}
+                activeProps={{ className: "text-brand-600 font-bold" }}
               >
                 Tours &amp; Packages
               </Link>
               <Link
                 to="/destinations"
                 className="hover:text-brand-600 transition"
-                activeProps={{ className: "text-brand-600 font-semibold" }}
+                activeProps={{ className: "text-brand-600 font-bold" }}
               >
                 Destinations
               </Link>
               <Link
+                to="/services"
+                className="hover:text-brand-600 transition"
+                activeProps={{ className: "text-brand-600 font-bold" }}
+              >
+                Services &amp; Stays
+              </Link>
+              <Link
                 to="/about"
                 className="hover:text-brand-600 transition"
-                activeProps={{ className: "text-brand-600 font-semibold" }}
+                activeProps={{ className: "text-brand-600 font-bold" }}
               >
-                About Us
+                About
               </Link>
               <Link
                 to="/contact"
                 className="hover:text-brand-600 transition"
-                activeProps={{ className: "text-brand-600 font-semibold" }}
+                activeProps={{ className: "text-brand-600 font-bold" }}
               >
                 Contact
               </Link>
             </nav>
 
-            {/* Right Action Buttons */}
-            <div className="hidden lg:flex items-center gap-4">
+            {/* Right Action Buttons - Clean & purposeful */}
+            <div className="hidden md:flex items-center gap-3">
               <a
                 href={`${MOCK_CONTACT.whatsappUrl}?text=${encodeURIComponent(
-                  "Hello! I am inquiring about tour and accommodation availability (Prototype Demo)."
+                  "Hello! Inquiring about Addis Ababa tours (Demo)."
                 )}`}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition"
+                className="p-2 rounded-full text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition"
+                title="Chat on WhatsApp"
+                aria-label="WhatsApp"
               >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <FaWhatsapp size={14} className="text-emerald-600" />
-                <span>{MOCK_CONTACT.phoneFormatted}</span>
+                <FaWhatsapp size={16} />
               </a>
 
               <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-4 py-2 rounded-full text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 shadow-sm hover:shadow transition"
+                to="/plan"
+                className="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-sm hover:shadow transition"
               >
-                Book a Tour
+                ✨ Plan Custom Trip
               </Link>
             </div>
 
@@ -152,43 +142,54 @@ export const Nav: React.FC = () => {
 
         {/* Mobile Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden mt-3 px-4 pt-2 pb-6 bg-white border-t border-slate-100 shadow-lg flex flex-col gap-2">
+          <div className="md:hidden mt-2 px-4 pt-2 pb-6 bg-white border-t border-slate-100 shadow-xl flex flex-col gap-1.5">
             <Link
               to="/"
               onClick={() => setIsMenuOpen(false)}
-              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium text-sm"
+              className="py-2.5 px-3 rounded-xl text-slate-800 hover:bg-slate-50 font-medium text-sm"
               activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
             >
               Home
             </Link>
             <Link
-              to="/services"
-              onClick={() => setIsMenuOpen(false)}
-              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium text-sm"
-              activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
-            >
-              Services
-            </Link>
-            <Link
               to="/tours"
               onClick={() => setIsMenuOpen(false)}
-              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium text-sm"
+              className="py-2.5 px-3 rounded-xl text-slate-800 hover:bg-slate-50 font-medium text-sm"
               activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
             >
               Tours &amp; Packages
             </Link>
             <Link
+              to="/plan"
+              onClick={() => setIsMenuOpen(false)}
+              className="py-2.5 px-3 rounded-xl text-brand-700 bg-brand-50 hover:bg-brand-100 font-bold text-sm flex items-center justify-between"
+              activeProps={{ className: "bg-brand-600 text-white font-bold" }}
+            >
+              <span>✨ Custom Trip Builder</span>
+              <span className="text-[10px] uppercase font-extrabold bg-white/90 text-brand-700 px-2 py-0.5 rounded-full">
+                Calculator
+              </span>
+            </Link>
+            <Link
               to="/destinations"
               onClick={() => setIsMenuOpen(false)}
-              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium text-sm"
+              className="py-2.5 px-3 rounded-xl text-slate-800 hover:bg-slate-50 font-medium text-sm"
               activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
             >
-              Destinations &amp; Sights
+              Destinations &amp; Landmarks
+            </Link>
+            <Link
+              to="/services"
+              onClick={() => setIsMenuOpen(false)}
+              className="py-2.5 px-3 rounded-xl text-slate-800 hover:bg-slate-50 font-medium text-sm"
+              activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
+            >
+              Services &amp; Stays
             </Link>
             <Link
               to="/about"
               onClick={() => setIsMenuOpen(false)}
-              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium text-sm"
+              className="py-2.5 px-3 rounded-xl text-slate-800 hover:bg-slate-50 font-medium text-sm"
               activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
             >
               About Us
@@ -196,19 +197,19 @@ export const Nav: React.FC = () => {
             <Link
               to="/contact"
               onClick={() => setIsMenuOpen(false)}
-              className="py-2.5 px-3 rounded-lg text-slate-800 hover:bg-slate-50 font-medium text-sm"
+              className="py-2.5 px-3 rounded-xl text-slate-800 hover:bg-slate-50 font-medium text-sm"
               activeProps={{ className: "bg-brand-50 text-brand-600 font-bold" }}
             >
-              Contact Us
+              Contact
             </Link>
 
-            <div className="pt-3 mt-1 border-t border-slate-100 flex flex-col gap-2">
+            <div className="pt-3 mt-2 border-t border-slate-100">
               <Link
-                to="/contact"
+                to="/plan"
                 onClick={() => setIsMenuOpen(false)}
-                className="w-full text-center py-2.5 rounded-xl font-semibold text-white bg-brand-600 hover:bg-brand-700 shadow-sm text-sm"
+                className="w-full text-center py-2.5 rounded-xl font-bold text-white bg-brand-600 hover:bg-brand-700 shadow-sm text-sm block"
               >
-                Book a Tour or Inquiry
+                Plan Your Trip
               </Link>
             </div>
           </div>

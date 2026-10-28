@@ -65,6 +65,12 @@ export const Under: React.FC = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/plan" className="text-brand-400 hover:text-white transition flex items-center gap-1.5">
+                  <span>Trip Calculator &amp; Builder</span>
+                  <span className="text-[10px] bg-brand-900/80 text-brand-300 px-1.5 py-0.2 rounded border border-brand-700/50">NEW</span>
+                </Link>
+              </li>
+              <li>
                 <Link to="/destinations" className="text-slate-400 hover:text-white transition">
                   Addis Landmarks
                 </Link>

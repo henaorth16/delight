@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "@tanstack/react-router";
 import { Fade } from "../components/Fade";
-import { MOCK_CONTACT } from "../../utils/utils";
+import { MOCK_CONTACT, LEADERSHIP_PERSONAS } from "../data/mockData";
 
 export const About: React.FC = () => {
   return (

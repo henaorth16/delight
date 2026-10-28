@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { Fade } from "./Fade";
-import { FaWhatsapp } from "./Icons";
-import { MOCK_CONTACT } from "../../utils/utils";
+import { FiLock } from "./Icons";
+import { saveCheckoutOrder } from "../data/mockData";
 
 interface PackagePlan {
   id: string;
@@ -75,6 +75,7 @@ const packages: PackagePlan[] = [
 ];
 
 export const Packages: React.FC = () => {
+  const navigate = useNavigate();
   const [duration, setDuration] = useState<"1" | "2" | "3">("1");
 
   const getPrice = (pkg: PackagePlan) => {
@@ -84,12 +85,20 @@ export const Packages: React.FC = () => {
   };
 
   const handleBook = (pkg: PackagePlan) => {
-    const text = encodeURIComponent(
-      `[Demo Inquiry] Hello Delight Tour! I would like to book the ${pkg.name} for ${duration} ${
-        duration === "1" ? "Day" : "Days"
-      } ($${getPrice(pkg)}). Could you provide availability?`
-    );
-    window.open(`${MOCK_CONTACT.whatsappUrl}?text=${text}`, "_blank");
+    const price = getPrice(pkg);
+    const durationLabel = `${duration} ${duration === "1" ? "Day" : "Days"}`;
+    saveCheckoutOrder({
+      tourId: pkg.id,
+      tourName: `${pkg.name} — ${pkg.badge || "Addis Tour"}`,
+      tag: `${durationLabel} Package`,
+      duration: durationLabel,
+      guests: 2,
+      pricePerPerson: price,
+      totalPrice: price * 2,
+      currency: "USD",
+      inclusions: pkg.inclusions,
+    });
+    navigate({ to: "/checkout" });
   };
 
   return (
@@ -228,8 +237,8 @@ export const Packages: React.FC = () => {
                         : "bg-slate-900 hover:bg-slate-800 text-white"
                     }`}
                   >
-                    <FaWhatsapp size={16} />
-                    <span>Book {pkg.name}</span>
+                    <FiLock size={16} />
+                    <span>Book {pkg.name} (${getPrice(pkg)})</span>
                   </button>
                 </div>
               </div>
@@ -240,7 +249,7 @@ export const Packages: React.FC = () => {
         {/* Note / Flexibility Assurance */}
         <div className="mt-12 text-center flex flex-col items-center gap-4">
           <p className="text-xs sm:text-sm text-slate-500 max-w-2xl mx-auto">
-            💡 <strong>Need full day-by-day itineraries?</strong> Check our comprehensive schedules, meal plans, and guide inclusions.
+            💡 <strong>Need full day-by-day itineraries or flight extensions?</strong> Including our <em>3-Day Lalibela UNESCO Rock Churches Expedition</em> and flexible meal plans.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <Link

@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { createRootRoute, Outlet } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
 import { Nav } from "../components/Nav";
 import { Under } from "../components/Under";
 import Loader from "../components/Loader";
@@ -18,6 +19,7 @@ function RootComponent() {
         </Suspense>
       </main>
       <Under />
+      <Analytics />
     </div>
   );
 }

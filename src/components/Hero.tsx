@@ -1,18 +1,57 @@
 import React, { useState } from "react";
-import { Link } from "@tanstack/react-router";
-import { FaWhatsapp } from "./Icons";
-import { MOCK_CONTACT } from "../../utils/utils";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { FiLock } from "./Icons";
+import { saveCheckoutOrder } from "../data/mockData";
 
 export const Hero: React.FC = () => {
+  const navigate = useNavigate();
   const [selectedTour, setSelectedTour] = useState("1-Day City Highlights");
   const [guests, setGuests] = useState("2 Travelers");
 
   const handleQuickInquire = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = encodeURIComponent(
-      `[Demo Inquiry] Hello Delight Tour! I am interested in booking a ${selectedTour} for ${guests}. Can you provide details and availability?`
-    );
-    window.open(`${MOCK_CONTACT.whatsappUrl}?text=${message}`, "_blank");
+
+    let guestCount = 2;
+    if (guests.includes("1 Solo")) guestCount = 1;
+    else if (guests.includes("2")) guestCount = 2;
+    else if (guests.includes("3-5")) guestCount = 4;
+    else if (guests.includes("6+")) guestCount = 6;
+
+    let pricePerPerson = 70;
+    let duration = "1 Day (8 Hours)";
+    let tag = "Essential Highlights";
+    if (selectedTour.includes("2-Day")) {
+      pricePerPerson = 95;
+      duration = "2 Days (1 Night)";
+      tag = "Cultural Exploration";
+    } else if (selectedTour.includes("3-Day")) {
+      pricePerPerson = 145;
+      duration = "3 Days (2 Nights)";
+      tag = "VIP & Stay Included";
+    } else if (selectedTour.includes("Custom")) {
+      pricePerPerson = 110;
+      duration = "Flexible";
+      tag = "Tailor-Made Tour";
+    }
+
+    saveCheckoutOrder({
+      tourId: "hero-quick-order",
+      tourName: `${selectedTour} — Addis Ababa`,
+      tag,
+      duration,
+      guests: guestCount,
+      pricePerPerson,
+      totalPrice: pricePerPerson * guestCount,
+      currency: "USD",
+      inclusions: [
+        "Private vehicle with dedicated driver",
+        "Licensed English-speaking local tour guide",
+        "Authentic Ethiopian lunch & traditional coffee ceremony",
+        "All museum and park entrance permits",
+      ],
+    });
+
+    navigate({ to: "/checkout" });
   };
 
   return (
@@ -108,10 +147,10 @@ export const Hero: React.FC = () => {
 
                 <button
                   type="submit"
-                  className="w-full h-full py-3 px-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm rounded-xl shadow-sm hover:shadow transition flex items-center justify-center gap-2"
+                  className="w-full h-full py-3 px-4 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2"
                 >
-                  <FaWhatsapp size={16} />
-                  <span>Demo WhatsApp</span>
+                  <FiLock size={16} />
+                  <span>Instant Checkout →</span>
                 </button>
               </form>
             </div>

@@ -12,7 +12,7 @@ import {
   FiShield,
   FaWhatsapp,
 } from "../components/Icons";
-import { MOCK_CONTACT } from "../../utils/utils";
+import { MOCK_CONTACT, FAQS_DATA } from "../data/mockData";
 
 interface InquiryForm {
   fullName: string;
@@ -23,44 +23,6 @@ interface InquiryForm {
   groupSize: string;
   message: string;
 }
-
-interface FAQItem {
-  question: string;
-  answer: string;
-}
-
-const faqs: FAQItem[] = [
-  {
-    question: "How do international travelers obtain an Ethiopian tourist visa?",
-    answer:
-      "Most international travelers can conveniently apply online for an official Ethiopian e-Visa (30 or 90 days single entry) via evisa.gov.et prior to departure. Citizens of many nations can also obtain a visa upon arrival at Bole International Airport (ADD).",
-  },
-  {
-    question: "Where will my driver or guide meet me upon arrival at Bole Airport?",
-    answer:
-      "For all airport transfer bookings, our dedicated driver waits directly outside the main international arrivals terminal holding a personalized Delight Tour welcome board with your name. We monitor live flight arrival times for delays.",
-  },
-  {
-    question: "What currencies and payment methods are accepted?",
-    answer:
-      "For this prototype platform, all rates are displayed in USD for international clarity. Locally, we accept major foreign currencies (USD, EUR, GBP) converted at official bank rates, Ethiopian Birr (ETB), Telebirr, and major credit cards.",
-  },
-  {
-    question: "Can Delight Tour accommodate strict vegetarian, vegan, or fasting diets?",
-    answer:
-      "Ethiopia has one of the world's richest traditions of plant-based cuisine due to Ethiopian Orthodox fasting traditions (Tsom). Delicious vegan platters (Bayenetu) consisting of spiced lentils, yellow split peas, collard greens, and shiro on injera are widely available daily.",
-  },
-  {
-    question: "What is your cancellation and rescheduling policy?",
-    answer:
-      "We offer flexible rescheduling without penalty up to 24 hours before your scheduled tour departure. Cancellations made 48 hours in advance are eligible for a 100% refund of the deposit.",
-  },
-  {
-    question: "Is Addis Ababa safe for solo and family travelers?",
-    answer:
-      "Addis Ababa is considered one of the safer capital cities in Africa. As in any large metropolitan area, common-sense precautions against petty pickpocketing in crowded areas like Merkato apply. Having our private licensed guide and vehicle ensures a seamless and secure experience.",
-  },
-];
 
 export const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState<InquiryForm>({
@@ -449,7 +411,7 @@ export const ContactPage: React.FC = () => {
           </div>
 
           <div className="space-y-3">
-            {faqs.map((faq, index) => {
+            {FAQS_DATA.map((faq, index) => {
               const isOpen = openFaq === index;
               return (
                 <div
